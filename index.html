@@ -1,50 +1,72 @@
-<!doctype HTML>
+<!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <style>
-        #arjsDebugUIContainer {
-            display: none;
-        }
+      #arjsDebugUIContainer {
+        display: none;
+      }
     </style>
     <title>UOC RV - PAC 4</title>
-</head>
-<script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"> </script>
+  </head>
+  <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+  <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
-<body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs>
-        <!-- Patter Car - Start -->
-        <a-marker type='pattern' url='recursos/pattern-Car.patt'>
-            <a-box position='0 0.5 0' material='color: red; opacity: 0.5'></a-box>
-        </a-marker>
-        <!-- Patter Car - End -->
+  <body style="margin: 0px; overflow: hidden">
+    <a-scene embedded arjs='sourceType:webcam;'>
+      <!-- Patter Car - Start -->
+      <a-marker type="pattern" url="pattern-car.patt">
+        <a-box position="0 0.5 0" material="color: red; opacity: 0.5"></a-box>
+      </a-marker>
+      <!-- Patter Car - End -->
 
-        <!-- Patter Home - Start -->
-        <a-marker type='pattern' url='recursos/pattern-Home.patt'>
-            <a-box position='0 0.5 0' material='color: red; opacity: 0.5'></a-box>
-        </a-marker>
-        <!-- Patter Home - End -->
+      <!-- Patter Home - Start -->
+      <a-marker type="pattern" url="pattern-home.patt">
+        <a-box position="0 0.5 0" material="color: red; opacity: 0.5"></a-box>
+      </a-marker>
+      <!-- Patter Home - End -->
 
-        <!-- Patter Man - Start -->
-        <a-marker type='pattern' url='recursos/pattern-Man.patt'>
-            <a-box position='0 0.5 0' material='color: red; opacity: 0.5'></a-box>
-        </a-marker>
-        <!-- Patter Man - End -->
+      <!-- Patter Man - Start -->
+      <a-marker type="pattern" url="pattern-man.patt">
+        <!-- Body - Start -->
+        <a-text value="Person" align="center">
+            <a-animation attribute="position" dur="2000" from="0 1.5 0" to="0 1.75 0" repeat="indefinite" direction="alternate"></a-animation>
 
-        <!-- Patter Tree - Start -->
-        <a-marker type='pattern' url='recursos/pattern-Tree.patt'>
-            <a-box position='0 0.5 0' material='color: red; opacity: 0.5'></a-box>
-        </a-marker>
-        <!-- Patter Tree - End -->
+        </a-text>
+        <a-box color="tomato" depth="0.5" height="1" width="0.5">
+            <a-animation attribute="position" dur="2000" from="0 0.5 0" to="0 0.75 0" repeat="indefinite" direction="alternate"></a-animation>
+        </a-box>
+        <a-box color="tomato" depth="0.5" height="0.5" width="0.75">
+            <a-animation attribute="position" dur="2000" from="0 0.75 0" to="0 1 0" repeat="indefinite" direction="alternate"></a-animation>
+        </a-box>
+        <!-- Body - Start -->
+        <!-- Head - Start -->
+        <a-sphere color="tomato" radius="0.35">
+            <a-animation attribute="position" dur="2000" from="0 1.05 0" to="0 1.30 0" repeat="indefinite" direction="alternate"></a-animation>
+        </a-sphere>
+        <a-sphere color="white" radius="0.05">
+            <a-animation attribute="position" dur="2000" from="0.15 1.25 0.20" to="0.15 1.50 0.20" repeat="indefinite" direction="alternate"></a-animation>
+        </a-sphere>
+        <a-sphere color="white" radius="0.05">
+            <a-animation attribute="position" dur="2000" from="-0.15 1.25 0.20" to="-0.15 1.50 0.20" repeat="indefinite" direction="alternate"></a-animation>
+        </a-sphere>
+        <!-- Head - End -->
 
-        <!-- Patter Sound - Start -->
-        <a-marker type='pattern' url='recursos/pattern-Sound.patt'>
-            <a-box position='0 0.5 0' material='color: red; opacity: 0.5'></a-box>
-        </a-marker>
-        <!-- Patter Sound - End -->
-        <a-entity camera></a-entity>
+      </a-marker>
+      <!-- Patter Man - End -->
+
+      <!-- Patter Tree - Start -->
+      <a-marker type="pattern" url="pattern-tree.patt">
+        <a-box color="tomato" position="0 0.5 0" depth="2" height="4" width="0.5"></a-box>
+
+      </a-marker>
+      <!-- Patter Tree - End -->
+
+      <!-- Patter Sound - Start -->
+      <a-marker type="pattern" url="pattern-sound.patt">
+        <a-box position="0 0.5 0" material="color: red; opacity: 0.5"></a-box>
+      </a-marker>
+      <!-- Patter Sound - End -->
+      <a-entity camera></a-entity>
     </a-scene>
-</body>
-
+  </body>
 </html>
