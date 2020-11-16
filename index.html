@@ -12,60 +12,100 @@
   <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
   <body style="margin: 0px; overflow: hidden">
-    <a-scene embedded arjs='sourceType:webcam;'>
-      <!-- Patter Car - Start -->
-      <a-marker type="pattern" url="pattern-car.patt">
-        <a-box position="0 0.5 0" material="color: red; opacity: 0.5"></a-box>
+    <a-scene embedded arjs="sourceType:webcam;">
+      <!-- Assets - Start -->
+      <a-assets>
+        <img id="materialBricks" src="recursos/material-bricks.jpg" />
+        <img id="materialConcrete" src="recursos/material-concrete.jpg" />
+        <img id="materialGrass" src="recursos/material-grass.jpg" />
+        <img id="materialWood" src="recursos/material-wood.jpg" />
+        <a-asset-item id="tree" src="recursos/tree.obj"></a-asset-item>
+        <a-asset-item id="man" src="recursos/man.obj"></a-asset-item>
+      </a-assets>
+      <!-- Assets - End -->
+      
+      <!-- Hiro - Start -->
+      <a-marker preset="hiro">
+        <a-box position="0 0.5 0" material="color: cyan; opacity: 0.5"></a-box>
       </a-marker>
-      <!-- Patter Car - End -->
+      <!-- Hiro - End -->
 
       <!-- Patter Home - Start -->
-      <a-marker type="pattern" url="pattern-home.patt">
-        <a-box position="0 0.5 0" material="color: red; opacity: 0.5"></a-box>
+      <a-marker type="pattern" url="recursos/pattern-home.patt">
+        <a-box
+          position="0 0 0"
+          depth="1.5"
+          height="0.05"
+          width="1.5"
+          material="color: white;"
+          src="#materialGrass"
+        ></a-box>
+        <a-box
+          position="0 0.5 0"
+          depth="0.75"
+          height="0.75"
+          width="0.75"
+          material="color: white;"
+          src="#materialBricks"
+        ></a-box>
+        <a-box
+          position="0 0.39 0.30"
+          depth="0.30"
+          height="0.40"
+          width="0.20"
+          material="color: white;"
+          src="#materialWood"
+        ></a-box>
+        <a-box
+          position="-0.05 1 0.05"
+          depth="0.15"
+          height="0.15"
+          width="0.15"
+          material="color: white;"
+          src="#materialConcrete"
+        ></a-box>
       </a-marker>
       <!-- Patter Home - End -->
 
       <!-- Patter Man - Start -->
-      <a-marker type="pattern" url="pattern-man.patt">
-        <!-- Body - Start -->
-        <a-text value="Person" align="center">
-            <a-animation attribute="position" dur="2000" from="0 1.5 0" to="0 1.75 0" repeat="indefinite" direction="alternate"></a-animation>
-
-        </a-text>
-        <a-box color="tomato" depth="0.5" height="1" width="0.5">
-            <a-animation attribute="position" dur="2000" from="0 0.5 0" to="0 0.75 0" repeat="indefinite" direction="alternate"></a-animation>
-        </a-box>
-        <a-box color="tomato" depth="0.5" height="0.5" width="0.75">
-            <a-animation attribute="position" dur="2000" from="0 0.75 0" to="0 1 0" repeat="indefinite" direction="alternate"></a-animation>
-        </a-box>
-        <!-- Body - Start -->
-        <!-- Head - Start -->
-        <a-sphere color="tomato" radius="0.35">
-            <a-animation attribute="position" dur="2000" from="0 1.05 0" to="0 1.30 0" repeat="indefinite" direction="alternate"></a-animation>
-        </a-sphere>
-        <a-sphere color="white" radius="0.05">
-            <a-animation attribute="position" dur="2000" from="0.15 1.25 0.20" to="0.15 1.50 0.20" repeat="indefinite" direction="alternate"></a-animation>
-        </a-sphere>
-        <a-sphere color="white" radius="0.05">
-            <a-animation attribute="position" dur="2000" from="-0.15 1.25 0.20" to="-0.15 1.50 0.20" repeat="indefinite" direction="alternate"></a-animation>
-        </a-sphere>
-        <!-- Head - End -->
-
+      <a-marker type="pattern" url="recursos/pattern-man.patt">
+        <a-entity
+          obj-model="obj: #man"
+          material="color: grey;"
+          position="0 0 0"
+          scale="10 10 10"
+        >
+          <a-animation
+            attribute="rotation"
+            dur="3000"
+            from="0 0 0"
+            to="0 360 0"
+            repeat="indefinite"
+            easing="linear"
+          ></a-animation>
+        </a-entity>
       </a-marker>
       <!-- Patter Man - End -->
 
       <!-- Patter Tree - Start -->
-      <a-marker type="pattern" url="pattern-tree.patt">
-        <a-box color="tomato" position="0 0.5 0" depth="2" height="4" width="0.5"></a-box>
-
+      <a-marker type="pattern" url="recursos/pattern-tree.patt">
+        <a-entity
+          obj-model="obj: #tree"
+          material="color: green;"
+          position="0 0.5 0"
+          scale="0.3 0.3 0.3"
+        >
+          <a-animation
+            attribute="rotation"
+            dur="2000"
+            from="0 0 0"
+            to="0 360 0"
+            repeat="indefinite"
+            direction="alternate"
+          ></a-animation>
+        </a-entity>
       </a-marker>
       <!-- Patter Tree - End -->
-
-      <!-- Patter Sound - Start -->
-      <a-marker type="pattern" url="pattern-sound.patt">
-        <a-box position="0 0.5 0" material="color: red; opacity: 0.5"></a-box>
-      </a-marker>
-      <!-- Patter Sound - End -->
       <a-entity camera></a-entity>
     </a-scene>
   </body>
