@@ -1,0 +1,50 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <style>
+        #arjsDebugUIContainer {
+            display: none;
+        }
+    </style>
+    <title>UOC RV - PAC 4</title>
+</head>
+<script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"> </script>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <a-scene embedded arjs>
+        <!-- Patter Car - Start -->
+        <a-marker type='pattern' url='recursos/pattern-Car.patt'>
+            <a-box position='0 0.5 0' material='color: red; opacity: 0.5'></a-box>
+        </a-marker>
+        <!-- Patter Car - End -->
+
+        <!-- Patter Home - Start -->
+        <a-marker type='pattern' url='recursos/pattern-Home.patt'>
+            <a-box position='0 0.5 0' material='color: red; opacity: 0.5'></a-box>
+        </a-marker>
+        <!-- Patter Home - End -->
+
+        <!-- Patter Man - Start -->
+        <a-marker type='pattern' url='recursos/pattern-Man.patt'>
+            <a-box position='0 0.5 0' material='color: red; opacity: 0.5'></a-box>
+        </a-marker>
+        <!-- Patter Man - End -->
+
+        <!-- Patter Tree - Start -->
+        <a-marker type='pattern' url='recursos/pattern-Tree.patt'>
+            <a-box position='0 0.5 0' material='color: red; opacity: 0.5'></a-box>
+        </a-marker>
+        <!-- Patter Tree - End -->
+
+        <!-- Patter Sound - Start -->
+        <a-marker type='pattern' url='recursos/pattern-Sound.patt'>
+            <a-box position='0 0.5 0' material='color: red; opacity: 0.5'></a-box>
+        </a-marker>
+        <!-- Patter Sound - End -->
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+
+</html>
